@@ -15,8 +15,7 @@ function image_dimensions_image_effect_info() {
   $effects = array();
 
   $effects['image_dimensions'] = array(
-    'label' => t('Output at 100%.'),
-    'help' => t('Output at 100%.'),
+    'label' => t('Output at 100%'),
     'effect callback' => 'image_dimensions_set_width_effect',
     'dimensions passthrough' => FALSE,
     'dimensions callback' => 'image_dimensions_dimensions',
