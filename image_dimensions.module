@@ -7,7 +7,7 @@
  */
 
 /**
- * hook_image_effect_info()
+ * Implements hook_image_effect_info().
  *
  * Return the descriptions for the supported actions.
  */
@@ -27,7 +27,7 @@ function image_dimensions_image_effect_info() {
 }
 
 /**
- * hook_theme()
+ * Implements hook_theme().
  */
 function image_dimensions_theme() {
   return array(
@@ -38,7 +38,7 @@ function image_dimensions_theme() {
 }
 
 /**
- * Implementation of imagecache_hook_form()
+ * Implements imagecache_hook_form().
  *
  * Settings for 100% width action.
  *
@@ -49,7 +49,7 @@ function image_dimensions_effect_form($action) {
 }
 
 /**
- * Implementation of theme_hook() for imagecache_ui.module
+ * Implements theme_hook() for imagecache_ui.module.
  */
 function theme_image_dimensions_effect_summary($variables) {
   return;
@@ -57,7 +57,7 @@ function theme_image_dimensions_effect_summary($variables) {
 
 
 /**
- * Implementation of hook_image()
+ * Implements hook_image().
  *
  * Process the imagecache action on the passed image
  *
@@ -80,9 +80,11 @@ function theme_image_dimensions_image($image, $data = array()) {
  *   - "height": An integer representing the desired height in pixels.
  */
 function image_dimensions_dimensions(&$dimensions) {
+  dpm('image_dimensions_dimensions');
   // The new image will have the exact dimensions defined for the effect.
   $dimensions['width'] = '100%';
   unset($dimensions['height']);
+  dpm($dimensions);
 }
 
 /**
