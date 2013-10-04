@@ -1,0 +1,3 @@
+name = "Image Dimensions"
+description = "Provide an image effect to set the attributes of images."
+core = 7.x
