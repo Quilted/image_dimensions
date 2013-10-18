@@ -6,7 +6,7 @@
  */
 
 /**
- * hook_image_effect_info()
+ * Implements hook_image_effect_info().
  *
  * Return the descriptions for the supported actions.
  */
@@ -55,7 +55,6 @@ function image_dimensions_set_width_effect(&$image, $data) {
  *   - "height": An integer representing the desired height in pixels.
  */
 function image_dimensions_dimensions(&$dimensions) {
-  // The new image will have the exact dimensions defined for the effect.
   $dimensions['width'] = '100%';
   unset($dimensions['height']);
 }
