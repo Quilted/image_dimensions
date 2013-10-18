@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * This module provides an image effect to alter the height and width
@@ -15,57 +14,33 @@ function image_dimensions_image_effect_info() {
   $effects = array();
 
   $effects['image_dimensions'] = array(
-    'label' => t('Output at 100%'),
+    'label' => t('Output at 100% width'),
     'effect callback' => 'image_dimensions_set_width_effect',
-    'dimensions passthrough' => FALSE,
     'dimensions callback' => 'image_dimensions_dimensions',
-    'form callback' => 'image_dimensions_effect_form',
-    'summary theme' => 'image_dimensions_effect_summary',
   );
 
   return $effects;
 }
 
-/**
- * hook_theme()
- */
-function image_dimensions_theme() {
-  return array(
-    'image_dimensions_effect_summary' => array(
-      'variables' => array('data' => NULL),
-    ),
-  );
-}
 
 /**
- * Implementation of imagecache_hook_form()
+ * Image effect callback;
  *
- * Settings for 100% width action.
- *
- * @param $action array of settings for this action
- * @return a form definition
+ * @param $image
+ *   An image object returned by image_load().
+ * @param $data
+ *   An array of attributes to use when performing the scale and crop effect
+ *   with the following items:
+ *   - "width": An integer representing the desired width in pixels.
+ *   - "height": An integer representing the desired height in pixels.
+ * @return
+ *   TRUE on success.
+ * @see image_scale_and_crop()
  */
-function image_dimensions_effect_form($action) {
+function image_dimensions_set_width_effect(&$image, $data) {
+  return TRUE;
 }
 
-/**
- * Implementation of theme_hook() for imagecache_ui.module
- */
-function theme_image_dimensions_effect_summary($variables) {
-  return;
-}
-
-
-/**
- * Implementation of hook_image()
- *
- * Process the imagecache action on the passed image
- *
- * Set the width to 100% and unset the height
- */
-function theme_image_dimensions_image($image, $data = array()) {
-  return image_toolkit_invoke('image_dimensions', $image, array($data));
-}
 
 /**
  * Image dimensions callback.
@@ -83,22 +58,4 @@ function image_dimensions_dimensions(&$dimensions) {
   // The new image will have the exact dimensions defined for the effect.
   $dimensions['width'] = '100%';
   unset($dimensions['height']);
-}
-
-/**
- * Image effect callback; Scale and crop an image resource.
- *
- * @param $image
- *   An image object returned by image_load().
- * @param $data
- *   An array of attributes to use when performing the scale and crop effect
- *   with the following items:
- *   - "width": An integer representing the desired width in pixels.
- *   - "height": An integer representing the desired height in pixels.
- * @return
- *   TRUE on success. FALSE on failure to scale and crop image.
- * @see image_scale_and_crop()
- */
-function image_dimensions_set_width_effect(&$image, $data) {
-  return TRUE;
 }
