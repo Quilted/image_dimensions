@@ -29,13 +29,12 @@ function image_dimensions_image_effect_info() {
  * @param $image
  *   An image object returned by image_load().
  * @param $data
- *   An array of attributes to use when performing the scale and crop effect
+ *   An array of attributes to use when performing the image effect
  *   with the following items:
  *   - "width": An integer representing the desired width in pixels.
  *   - "height": An integer representing the desired height in pixels.
  * @return
  *   TRUE on success.
- * @see image_scale_and_crop()
  */
 function image_dimensions_set_width_effect(&$image, $data) {
   return TRUE;
@@ -49,7 +48,7 @@ function image_dimensions_set_width_effect(&$image, $data) {
  *   Dimensions to be modified - an array with components width and height, in
  *   pixels.
  * @param $data
- *   An array of attributes to use when performing the resize effect with the
+ *   An array of attributes to use when performing the image effect with the
  *   following items:
  *   - "width": An integer representing the desired width in pixels.
  *   - "height": An integer representing the desired height in pixels.

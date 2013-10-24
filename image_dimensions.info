@@ -1,3 +1,3 @@
 name = "Image Dimensions"
-description = "Provide an image effect to set the attributes of images."
+description = "Provide an image effect to output the image at 100% width."
 core = 7.x
