@@ -55,5 +55,5 @@ function image_dimensions_set_width_effect(&$image, $data) {
  */
 function image_dimensions_dimensions(&$dimensions) {
   $dimensions['width'] = '100%';
-  unset($dimensions['height']);
+  $dimensions['height'] = '';
 }
